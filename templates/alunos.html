@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alunos</title>
+  </head>
+  <body>
+    <h1>Cadastrar alunos:</h1>
+    <form id='formulario' action="/resultado" method="POST">
+      {% for i in range(1, n+1) %}
+      <h3>Aluno {{i}}:</h3>
+      <label for="tx-nome{{i}}">Nome:</label>
+      <input type="text" name="nome{{i}}" id="tx-nome{{i}}" required />
+
+      <label for="tx-media{{i}}" style="padding-left: 10px">Média: </label>
+      <input type="text" name="media{{i}}" id="tx-media{{i}}" required />
+      {% endfor %}
+      <br /><br />
+      <button>ENVIAR</button>
+    </form>
+  </body>
+</html>

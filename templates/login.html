@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Faça o seu Login:</h1>
+    <form method="POST">
+      <label for="tx-nome">Nome:</label>
+      <input type="text" name="nome" id="tx-nome" required/>
+      <br />
+      <br />
+      <label for="pwsenha">Senha:</label>
+      <input type="password" name="senha" id="pw-senha" required/>
+      <br />
+      <br />
+      <button>ENTRAR</button>
+      <p>{{erro}}</p>
+    </form>
+  </body>
+</html>

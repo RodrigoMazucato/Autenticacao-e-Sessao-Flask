@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultado</title>
+    <style>
+      div {
+        border: 1px solid black;
+        width: 300px;
+        margin-top: 20px;
+        padding: 0 20px;
+        border-radius: 10px;
+      }
+
+      section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div id="completo">
+        <h3>Lista Completa:</h3>
+        <ul>
+          {% for nome, media in alunos.items() | sort %}
+          <li>{{nome}}: {{media}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div id="menor_nome">
+        <p><b>Menor nome:</b> {{alunos.keys() | sort | first}}</p>
+      </div>
+      <div id="maior_nome">
+        <p><b>Maior nome:</b> {{alunos.keys() | sort | last}}</p>
+      </div>
+      <div id="maior_media">
+        <p><b>Maior média:</b> {{alunos.values() | sort | last}}</p>
+      </div>
+      <div id="mediana">
+        {%set tamanho = (alunos | length) %}
+        {%set posicao = tamanho - 1 %}
+        {%set medias = alunos.values() | sort %}
+        
+        {% if tamanho % 2 != 0 %}
+            <p><b>Mediana:</b> {{medias[posicao//2]}}</p>
+        {% else %}
+            {%set media_total = (medias[posicao//2] + medias[posicao//2+1]) / 2 %}
+            <p><b>Mediana:</b> {{media_total}}</p>
+        {% endif%}
+      </div>
+      <br>
+      <a href="/sair">SAIR</a>
+    </section>
+  </body>
+</html>
